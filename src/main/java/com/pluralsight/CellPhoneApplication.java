@@ -6,6 +6,11 @@ public class CellPhoneApplication {
     private static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
+        CellPhone cellPhone = createCellPhoneFromInput();
+        displayCellPhone(cellPhone);
+    }
+
+    private static CellPhone createCellPhoneFromInput() {
         CellPhone cellPhone = new CellPhone();
 
         prompt("What is the serial number?");
@@ -22,14 +27,15 @@ public class CellPhoneApplication {
 
         prompt("Who is the owner of the phone?");
         cellPhone.setOwner(readString());
+        return cellPhone;
+    }
 
-
+    private static void displayCellPhone(CellPhone cellPhone) {
         System.out.println("Serial Number: " + cellPhone.getSerialNumber());
         System.out.println("Phone Number:" + cellPhone.getPhoneNumber());
         System.out.println("Model: " + cellPhone.getModel());
         System.out.println("Carrier: " + cellPhone.getCarrier());
         System.out.println("Owner: " + cellPhone.getOwner());
-
     }
 
 
